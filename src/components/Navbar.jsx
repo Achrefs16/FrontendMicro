@@ -11,7 +11,7 @@ import axios from "axios";
 import { useCart } from "../app/context/CartContext"; // Import useCart
 import ProfileModal from "./ProfileModal";
 
-const API_URL = "http://ec2-51-20-188-242.eu-north-1.compute.amazonaws.com/api/auth/api/auth";
+const API_URL = "https://microservicesapp.duckdns.org/api/auth/api/auth";
 
 const Navbar = () => {
   const { clientTotalItems } = useCart(); // Get total items from cart
