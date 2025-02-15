@@ -13,7 +13,7 @@ const [searchTerm, setSearchTerm] = useState('');
     const fetchProducts = async () => {
       try {
         // Adjust the URL to match your backend endpoint
-        const response = await axios.get("https://microservicesapp.duckdns.org /api/products/products");
+        const response = await axios.get("https://microservicesapp.duckdns.org/api/products/products");
         setProducts(response.data);
         console.log(response.data);
         
