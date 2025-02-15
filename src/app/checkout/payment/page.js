@@ -1,13 +1,13 @@
 "use client";
-import { useState } from "react";
+import { useState,useEffect  } from "react";
 import { useAddress } from "../../context/AddressContext";
 import { useCart } from "../../context/CartContext";
 import Navbar from "@/components/Navbar";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 const PaymentPage = () => {
+  const [token, setToken] = useState(null);
 
-    const token = localStorage.getItem("usertoken");
   const { address } = useAddress();
   const { totalPrice,clearCart,cart } = useCart();
   const [cardDetails, setCardDetails] = useState({
@@ -17,6 +17,14 @@ const PaymentPage = () => {
     name: "",
   });
 
+
+  useEffect(() => {
+    // Vérifie que window est défini et récupère le token
+    if (typeof window !== "undefined") {
+      const userToken = localStorage.getItem("usertoken");
+      setToken(userToken);
+    }
+  }, []);
   const handleChange = (e) => {
     setCardDetails({ ...cardDetails, [e.target.name]: e.target.value });
   };
