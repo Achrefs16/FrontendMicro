@@ -97,7 +97,7 @@ const Navbar = () => {
             <div className="hidden md:flex items-center space-x-8">
              <Link href="/" className="text-gray-700 hover:text-blue-600">Home</Link>
              <Link href="/categories" className="text-gray-700 hover:text-blue-600">Categories</Link>
-             <Link href="/NewArrivals" className="text-gray-700 hover:text-blue-600">New Arrivals</Link>
+         
              <Link href="/contact" className="text-gray-700 hover:text-blue-600">Contact</Link>
             
           </div>
