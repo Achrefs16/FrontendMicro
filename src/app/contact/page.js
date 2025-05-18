@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-import Navbar from "@/components/Navbar";
+import Navbar from "../../components/Navbar";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({

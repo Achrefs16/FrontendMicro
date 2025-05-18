@@ -1,5 +1,6 @@
-import { CartProvider } from "../app/context/CartContext"; // Import du contexte
-import { AddressProvider } from "../app/context/AddressContext";
+import { CartProvider } from "./context/CartContext";
+import { AddressProvider } from "./context/AddressContext";
+import { FavoritesProvider } from "./context/FavoritesContext";
 import "./globals.css";
 
 export const metadata = {
@@ -12,8 +13,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="antialiased font-sans">
         <CartProvider>
-            <AddressProvider> {/* Utilisation du contexte pour englober l'application */}
-          {children}
+          <AddressProvider>
+            <FavoritesProvider>
+              {children}
+            </FavoritesProvider>
           </AddressProvider>
         </CartProvider>
       </body>

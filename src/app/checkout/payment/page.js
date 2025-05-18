@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { useAddress } from "../../context/AddressContext";
 import { useCart } from "../../context/CartContext";
-import Navbar from "@/components/Navbar";
+import Navbar from "../../../components/Navbar";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
@@ -158,7 +158,7 @@ const PaymentPage = () => {
     };
 
     try {
-      const response = await axios.post("https://microservicesapp.duckdns.org/api/orders/api/order", orderData, {
+      const response = await axios.post(process.env.NEXT_PUBLIC_ORDER_API_URL, orderData, {
         headers: {
           "Content-Type": "application/json",
         },

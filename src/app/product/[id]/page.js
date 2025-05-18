@@ -4,7 +4,9 @@ import { useParams } from "next/navigation";
 import { FaCartPlus, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { useCart } from '../../context/CartContext';
 import axios from "axios";
-import Navbar from "@/components/Navbar";
+import Navbar from "../../../components/Navbar";
+
+const PRODUCT_API_URL = process.env.NEXT_PUBLIC_PRODUCT_API_URL;
 
 const ProductPage = () => {
   const { addItem } = useCart();
@@ -17,11 +19,9 @@ const ProductPage = () => {
     
     const fetchProduct = async () => {
       try {
-        // Adjust the URL to match your backend endpoint
-        const response = await axios.get(`https://microservicesapp.duckdns.org/api/products/products/${id}`);
+        const response = await axios.get(`${PRODUCT_API_URL}/products/${id}`);
         setProduct(response.data);
         console.log(response.data);
-        
       } catch (err) {
         console.error("Error fetching products:", err);
         setError("Failed to load products.");
